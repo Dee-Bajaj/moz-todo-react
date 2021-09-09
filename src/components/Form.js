@@ -27,9 +27,10 @@ function Form(props) {
   name="text"
   autoComplete="off"
   value={name}
+  data-testid="Input-Text"
   onChange={handleChange}
 />
-      <button type="submit" className="btn btn__primary btn__lg">
+      <button type="submit" className="btn btn__primary btn__lg" data-testid="Submit-Button">
         Add
       </button>
     </form>

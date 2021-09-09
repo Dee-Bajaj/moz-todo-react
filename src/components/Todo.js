@@ -36,6 +36,7 @@ export default function Todo(props) {
             className="todo-text"
             type="text"
             value={newName}
+            data-testid = "Input-Edit"
             onChange={handleChange}
             ref={editFieldRef}
             />
@@ -43,11 +44,11 @@ export default function Todo(props) {
           </div>
           <div className="btn-group">
               <span className="visually-hidden">new name for {props.name}</span>
-            <button type="button" className="btn todo-cancel" onClick={() => setEditing(false)}>
+            <button type="button" className="btn todo-cancel" data-testid = "Button-Cancel" onClick={() => setEditing(false)}>
              Cancel
              <span className="visually-hidden">renaming {props.name}</span>
             </button>
-            <button type="submit" className="btn btn__primary todo-edit">
+            <button type="submit" data-testid= "Button-EditSave" className="btn btn__primary todo-edit">
               Save
             </button>
           </div>
@@ -60,19 +61,21 @@ export default function Todo(props) {
                 id={props.id}
                 type="checkbox"
                 defaultChecked={props.completed}
+                data-testid = "CheckBox-Toggle"
                 onChange={() => props.toggleTaskCompleted(props.id)}
               />
-              <label className="todo-label" htmlFor={props.id}>
+              <label className="todo-label" htmlFor={props.id} data-testid = "CheckBox-Label" >
                 {props.name}
               </label>
             </div>
             <div className="btn-group">
-              <button type="button" className="btn" onClick={() => setEditing(true)} ref={editButtonRef}>
+              <button type="button" className="btn" data-testid="Button-Edit" onClick={() => setEditing(true)} ref={editButtonRef}>
                Edit <span className="visually-hidden">{props.name}</span>
               </button>
               <button
                 type="button"
                 className="btn btn__danger"
+                data-testid="Button-Delete"
                 onClick={() => props.deleteTask(props.id)}
               >
                 Delete <span className="visually-hidden">{props.name}</span>
